@@ -5,3 +5,4 @@ openai
 openpyxl
 jsonlines
 matplotlib
+networkx
