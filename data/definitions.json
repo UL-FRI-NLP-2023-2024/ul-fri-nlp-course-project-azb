@@ -1,0 +1,98 @@
+{
+    "UX":{
+        "Definition":"User's opinion about the IMapBook interface, or media they wish we would include, user experience, media, relationship with the media.",
+        "Examples":["I'm finding this program a bit slow and difficult to work in. ","I am not a fan of the sound effect, but would be a fan of some pictures."]
+    },
+
+    "Social":{
+        "Definition":"Discussion that establishes or maintains a relationship and does NOT relate to the assignments.",
+        "Examples":["Greetings","Hello! I'm excited to work with you all."]
+    },
+
+    "Procedure":{
+        "Definition":"Discussion toward accomplishing a task. How should the task be accomplished? Specifically, discussion of how to complete the assignment.Big Question: How does this work? What does the teacher want us to do with this assignment?",
+        "Examples": ["Are we each supposed to submit our own interpretations or compose something together?","Did we submit it? Is that why it's blank now?","What time is everyone available to meet and complete the task?"]    
+    },
+
+    "Deliberation":{
+        "Definition":"Turns related to decision-making about the content…. Or writing or wording. It also indicates the internal procedure of an individual, and interpersonal functioning of the group. Big Question: What should we do next?",
+        "Examples":["What should be included in a collaborative submission, how it should be worded.","What do you think about the questions? How should they be answered?","In terms of just answering, I feel like the tiger was behind the door, and later the King puts his daughter to trial…","That’s exactly what I think as well."]   
+    },
+
+    "Seminar":{
+        "Definition":"Discussion on the meaning or interpretation of content. My interpretation vs. your interpretation. What does it mean?",
+        "Examples":["Perhaps the content could mean this…","I mean I think it states that the king does love the daughter at some point though.Maybe not to enough of a degree not to put her to trial...but he does love her, just like to a degree she loved the man"]
+    },
+
+    "Imaginative entry":{
+        "Definition":"Discourse that places the learner in the discussion as an active participant",
+        "Examples":["Does this mean that we are all like this too?"]
+    },
+
+    "Disciplinary":{
+        "Definition":"Application of shared field to discussion of content",
+        "Examples":"This relates to the content we reviewed at an earlier time."
+    },
+
+    "Affirm":{
+        "Definition":"The action or process of affirming something or being affirmed, showing agreement.",
+        "Examples":["That's a good point.","I agree."]
+    },
+
+    "Elaborate":{
+        "Definition":"Provide additional examples, detail or explanation. These are statement, NOT questions or commands",
+        "Examples":["Another example of this…"]
+    },
+
+    "Clarify":{
+        "Definition":"Ask questions or make commands, to improve comprehension.",
+        "Examples":["So you are saying…? ","Do you mean…?"]
+    },
+
+    "Disagree":{
+        "Definition":"To express a differing opinion.",
+        "Examples":["I disagree.","This means something different than what you stated."]
+    },
+
+    "Prompt":{
+        "Definition":"Refers back and responds to a previous discussion or question",
+        "Examples":"Going back to your previous question…"
+    },
+
+    "Filler":{
+        "Definition":"Acknowledges the previous person's position without adding anything of substance to the conversation; a comment made for the purpose of satisfying participation grade requirements",
+        "Examples":["As you said..."]
+    },
+
+    "Respond":{
+        "Definition":"Answer a previous question or make a decision based on a question",
+        "Examples":["okay should we start writing about it or should we find some quotes first and talk about them?" ,"find quotes first"]
+    },
+
+    "O-LOT":{
+        "Definition":"Questions that are open-ended, but involve lower-order thinking",
+        "Examples":["So when you read this, what did you think?"]
+    },
+
+    "C-LOT":{
+        "Definition":"Questions that are closed-ended, lower-order thinkingi--that is, questions for which there is an answer in mind and students are only expected to recall or to apply what they already know.",
+        "Examples":["Are we supposed to write out answer in the text box below?"]
+    
+    },
+
+    "O-HOT":{
+        "Definition":"Questions that are open-ended and require “higher-order thinking”—that is, questions that invite multiple answers and encourage students to analyze, synthesize, or evaluate.",
+        "Examples": ["What happens next? ", "What does this mean and what does it effect?"]
+    },
+
+    "C-HOT":{
+        "Definition":"Questions that have limited answer options, but require 'higher-order thinking' to choose",
+        "Examples":["So should we do it this way or that way?"]
+    },
+
+    "Pivot from and to":{
+        "Definition":"The posting establishes or changes the procedural direction of the discussion",
+        "Examples":["Yes, I agree to your statement. But in terms of answering the question…"]
+    }
+    
+}

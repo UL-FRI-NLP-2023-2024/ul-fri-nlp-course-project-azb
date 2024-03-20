@@ -1,0 +1,50 @@
+The dialogue types in a dicussion can be generally divided in to 4 categories: Discussion Category,Uptake category, question category, and pivot category. The following provides the definitions and associated examples in each category:
+
+Discussion UX Category emphasizes User's opinion about the IMapBook interface, or media they wish we would include, user experience, media, relationship with the media. The relevant examples in this category includes: 'I'm finding this program a bit slow and difficult to work in. ','I am not a fan of the sound effect, but would be a fan of some pictures.'.
+
+Discussion Social Category indicates Discussion that establishes or maintains a relationship and does NOT relate to the assignments. The relevant examples in this category includes 'Greetings','Hello! I am excited to work with you all.'.
+
+Discussion Procedure Category refers to Discussion toward accomplishing a task. How should the task be accomplished? Specifically, discussion of how to complete the assignment.Big Question is about how does this work? What does the teacher want us to do with this assignment? The relevant examples in this category includes: 'Are we each supposed to submit our own interpretations or compose something together?','Did we submit it? Is that why it is blank now?','What time is everyone available to meet and complete the task?'.
+
+Discussion Deliberation Category indicates Turns related to decision-making about the content…. Or writing or wording. It also indicates the internal procedure of an individual, and interpersonal functioning of the group. Big Question is about what should we do next? The relevant examples in this category includes: 'What should be included in a collaborative submission, how it should be worded.','What do you think about the questions? How should they be answered?','In terms of just answering, I feel like the tiger was behind the door, and later the King puts his daughter to trial…','That is exactly what I think as well.'.
+
+Discussion Seminar Category indicates discussion on the meaning or interpretation of content, such as My interpretation vs. your interpretation. What does it mean? The relevant examples in this category include: 'Perhaps the content could mean this…','I mean I think it states that the king does love the daughter at some point though. Maybe not to enough of a degree not to put her to trial...but he does love her, just like to a degree she loved the man'.
+
+Discussion Imaginary Entry Category indicates discourse that places the learner in the discussion as an active participant. The relevant example includes 'does this mean that we are all like this too?'.
+
+
+Discussion Disciplinary Category indicates that application of shared field to discussion of content. The examples in this category include 'This relates to the content we reviewed at an earlier time.'.
+
+Uptake Affirm Category indicates the action or process of affirming something or being affirmed, showing agreement. The examples in this category includes 'That is a good point.','I agree.'.
+
+Uptake Elaborate Category indicates provide additional examples, detail or explanation. These are statement, NOT questions or commands. The examples in this category includes 'Another example of this…'
+
+Uptake Clarify Category indicates ask questions or make commands, to improve comprehension. The examples in this category includes 'So you are saying…?', 'Do you mean…?'.
+
+Uptake Disagree Category indicates to express a differing opinion. The examples in this category includes 'I disagree.','This means something different than what you stated.'.
+
+Uptake Prompt Category indicates to refer back and responds to a previous discussion or question. The examples include 'Going back to your previous question…'.
+
+Uptake Filler Category indicates acknowledges the previous person's position without adding anything of substance to the conversation; a comment made for the purpose of satisfying participation grade requirements. The examples include 'As you said...'.
+
+Uptake Respond Category indicates answer a previous question or make a decision based on a question. The examples include 'okay should we start writing about it or should we find some quotes first and talk about them?', 'find quotes first'.
+
+Question O-LOT Category indicates questions that are open-ended, but involve lower-order thinking. The examples include 'So when you read this, what did you think?'.
+
+Question C-LOT Category indicates questions that are closed-ended, lower-order thinkingi--that is, questions for which there is an answer in mind and students are only expected to recall or to apply what they already know. The examples include 'Are we supposed to write out answer in the text box below?'.
+
+Question O-HOT Category indicates questions that are open-ended and require “higher-order thinking”—that is, questions that invite multiple answers and encourage students to analyze, synthesize, or evaluate. The examples in this catetory incldue 'What happens next?', 'What does this mean and what does it effect?'.
+
+Question C-HOT Category indicates Questions that have limited answer options, but require higher-order thinking to choose. The examples in this category include 'So should we do it this way or that way?'.
+
+Pivot From and To Category indicates the posting establishes or changes the procedural direction of the discussion. The examples in this category include 'Yes, I agree to your statement. But in terms of answering the question…'.
+
+
+
+
+
+
+
+
+
+

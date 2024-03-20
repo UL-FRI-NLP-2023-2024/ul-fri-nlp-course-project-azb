@@ -1,0 +1,7 @@
+pandas
+langchain
+python-dotenv
+openai
+openpyxl
+jsonlines
+matplotlib
