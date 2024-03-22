@@ -31,23 +31,23 @@
 %----------------------------------------------------------------------------------------
 
 % Header
-\JournalInfo{FRI Natural language processing course 2021}
+\JournalInfo{FRI Natural language processing course 2024}
 
 % Interim or final report
 \Archive{Project report} 
 %\Archive{Final report} 
 
 % Article title
-\PaperTitle{Natural language processing course Latex Template} 
+\PaperTitle{Qualitative Research on Discussions - text categorization} 
 
 % Authors (student competitors) and their info
-\Authors{John Doe, Jane Doe, and Mike Smith}
+\Authors{Ana Petrova, Žan Korošak, and Bojan Ilić}
 
 % Advisors
 \affiliation{\textit{Advisors: Slavko Žitnik}}
 
 % Keywords
-\Keywords{Keyword1, Keyword2, Keyword3 ...}
+\Keywords{discourse analysis, text categorization, language model}
 \newcommand{\keywordname}{Keywords}
 
 
@@ -77,156 +77,84 @@ The abstract goes here. The abstract goes here. The abstract goes here. The abst
 %----------------------------------------------------------------------------------------
 
 \section*{Introduction}
-	These latex files are intended to serve as a the template for the NLP course at FRI.  The template is adapted from the FRI Data Science Project Competition. template  If you find mistakes in the template or have problems using it, please consult Jure Demšar (\href{mailto:jure.demsar@fri.uni-lj.si}{jure.demsar@fri.uni-lj.si}).
+In the evolving landscape of social science research, qualitative discourse analysis emerges as a pivotal methodology for understanding the complexities of human interaction. This intricate process involves the categorization of text within discussions, demanding a deep comprehension of context, participant perspectives, and the linkage between them that weave through conversations. Traditionally, this task has been the domain of human coders, whose role in ensuring inter-rater reliability is both crucial and labor-intensive. The development of large language models (LLMs) introduces a transformative potential for automating and enhancing the reliability of such qualitative analyses.
+
+This paper researches the development and application of a novel approach to categorize postings in online discussions, using a case study centered around the corpus of an online dialogue about the story "The Lady, or the Tiger?". Leveraging a dataset coded with high inter-rater reliability and an accompanying codebook, our project aims to construct and train a language model with an ability to address this complex coding task. The goal is to achieve a model that not only demonstrates high reliability but also generalizes effectively across various online discussion contexts.
+
+Our methodology is anchored in a comprehensive literature review that explores existing discourse and dialogic analysis frameworks, with a particular focus on the intersection of these fields with natural language processing (NLP). This review lays the groundwork for understanding the coding criteria and methodologies that have shaped the field. Following this, we begin a detailed examination of the provided coded discourse dataset, focusing on understanding its complexities and the challenges associated with coding it.
+
+The core of our research involves the intricate process of building and fine-tuning LLMs. This process is not merely technical; it requires a delicate understanding of the discourse context, the dynamics between participants, and the interplay of ideas within the discussion. The use of high-performance computing (HPC) is crucial in this phase, enabling the processing and analysis of complex datasets. Performance evaluation forms a critical component of our methodology, involving a comparison of our model's performance with that of human coders and other computational models. This iterative process of comparison and refinement is crucial for enhancing the model's accuracy and reliability.
+
+A novel aspect of our research is the use of a separately fine-tuned LLM to generate explanations for the model's categorization decisions. This not only adds a layer of transparency to the model's workings but also provides valuable insights into its decision-making processes.
+
+Our research is inspired by the findings of the paper \textit{TopicGPT: A Prompt-based Topic Modeling Framework}, which highlighted the limitations of the Mistral model in comparison to other approaches. We aim to build upon the foundational aspects of the Mistral model, addressing its shortcomings and enhancing its capabilities to improve performance.
 	
-	In the Introduction section you should write about the relevance of your work (what is the purpose of the project, what will we solve) and about related work (what solutions for the problem already exist). Where appropriate, reference scientific work conducted by other researchers. For example, the work done by Demšar et al. \cite{Demsar2016BalancedMixture} is very important for our project. The abbreviation et al. is for et alia, which in latin means and others, we use this abbreviation when there are more than two authors of the work we are citing. If there are two authors (or if there is a single author) we just write down their surnames. For example, the work done by Demšar and Lebar Bajec \cite{Demsar2017LinguisticEvolution} is also important for successful completion of our project.
+
+\section*{Related works}
+In the domain of topic modeling and text categorization, a variety of methodologies have emerged over the years, each aiming to improve our ability to discern and categorize underlying themes within large datasets of text. Latent Dirichlet Allocation (LDA) \cite{Blei2003LatentDA}, introduced in the early 2000s stands out as one of the foundational techniques that is still used in modern comparisons and benchmarks. LDA has paved the way for understanding topic distributions within documents through a generative statistical approach. However, the evolution of NLP technologies has ushered in a new era of topic modeling methods, characterized by enhanced sophistication and effectiveness. 
+
+In the paper \textit{BERTopic: Neural Topic Modeling with a Class-based TF-IDF Procedure} by Maarten Grootendorst, BERTopic is introduced as an advanced topic modeling technique. This method distinguishes itself by utilizing pre-trained transformer-based language models to generate and cluster document embeddings, in this way creating coherent topic representations through a novel class-based TF-IDF approach. Unlike conventional models such as LDA, BERTopic emphasizes the semantic relationships between words, ensuring more meaningful clustering and topic representation. The study highlights BERTopic's strengths in generating semantically coherent topics, its adaptability with different language models, and its capacity for dynamic topic modeling, showcasing its superior performance in various benchmarks. 
+
+BERTopic was used in the paper \textit{ChatGPT in education: A discourse analysis of worries and
+concerns on social media} \cite{li2023chatgpt}, which addresses the challenge of integrating ChatGPT in education, emphasizing the need to balance its educational benefits against potential risks and ethical concerns.  It highlights areas such as academic integrity and the development of student skills. The researchers employed BERT-based topic modeling to analyze Twitter data, identifying key themes and concerns related to ChatGPT's application in education. 
+%% The analysis suggests a collaborative approach among various stakeholders, including policymakers and educators, to develop responsible guidelines for AI's use in education, ensuring that its integration enhances learning while addressing associated challenges.
+%% napišem še katere metode so uporabili in kakšne so približno rezultate dobil
+%% Ana: sem dodala en odstavek ki poveze ta clavek na BERTopic, mislim da smo vredu tukaj
+
+In \textit{Top2Vec: Distributed Representations of Topics} by Dimo Angelov \cite{angelov2020top2vec}, Top2Vec is presented as an unsupervised model that innovatively uses document and word embeddings to discover topics within large text collections. It simplifies topic discovery by automatically determining the topic count and eliminating the need for stop-word removal, stemming, or lemmatization. The model's key strengths include its automated discovery of topics through semantic embeddings, creating a semantic space that accurately represents the similarities among documents, words, and topics. Top2Vec also introduces a topic evaluation metric based on mutual information, with which its ability to yield more informative and corpus-representative topics is shown. Additionally, it facilitates hierarchical topic reduction, aiding in the simplification of analysis without considerable information loss. Overall, Top2Vec marks a notable shift towards leveraging distributed representations for more efficient and intuitive topic modeling, indicating a promising avenue for further exploration in natural language processing and information retrieval fields.
+
+A promising paper which offers a lot of space for improvement is TopicGPT \cite{pham2023topicgpt}, which represents a breakthrough in topic modeling. It utilizes a prompt-based framework with large language models (LLMs) to surpass traditional methods like LDA in terms of interpretability and semantic control. This method produces topics that are more aligned with human understanding and categorization. TopicGPT operates through a two-stage process: initially, it generates topics by prompting an LLM with a selection of documents and a list of previously generated topics, refining these topics to reduce redundancy and eliminate infrequent ones. In the second stage, the model assigns new documents to these topics, citing evidence from the documents to support the assignments and enhance the method's verifiability and interpretability. This approach is described as human-centric, focusing on creating intuitive topic structures and understandable document-topic associations. It also allows for user intervention in the generation process through seed topics and manual editing, ensuring the output closely aligns with user expectations. 
+
+The paper further discusses the use of Mistral, an open-source LLM, for topic assignment in an attempt to reduce dependence on more costly proprietary models such as GPT-3.5-turbo. Although Mistral shows reasonable effectiveness in topic assignment, it does not achieve the same level of performance in topic generation as its proprietary counterparts, highlighting the challenges of relying solely on open-source models for high-quality topic modeling. 
+
+There have also been a few papers trying to offer a comparative analysis of current state-of-the-art methods. In \textit{Topic Modeling: A Consistent Framework for Comparative Studies} by Ana Amaro and Fernando Bacao \cite{Amaro2024TopicMA}, the authors tackle key challenges in topic modeling, presenting a comprehensive analysis aimed at enhancing the consistency and comparability of the algorithm evaluations of topic modeling. This work features a detailed comparative study of five TM algorithms over three benchmark datasets, evaluated against five distinct metrics. It updates the survey of approaches and metrics in topic modeling, introduces state-of-the-art algorithms like Top2Vec not covered in previous literature, and proposes a consistent framework for algorithm comparison.
+Key findings include Top2Vec's superior performance across all datasets when evaluated with Context Vectors (CV) Topic Coherence, suggesting newer approaches can provide more informative topics than traditional models such as LDA. The study emphasizes the importance of selecting appropriate evaluation metrics, pointing out the variability in algorithm performance under different conditions and highlighting the necessity of a comprehensive evaluation framework.
+The paper marks a significant contribution to the field by proposing a framework that ensures comparability and consistency in algorithm evaluation, revealing the potential of advanced embedding techniques in improving outcomes. It underscores the ongoing need for rigorous comparison and evaluation of algorithms to keep pace with emerging models and techniques.
+
+Similarly, in the study \textit{Leveraging State-of-the-Art Topic Modeling for News Impact Analysis on Financial Markets: A Comparative Study} by Chen et al. \cite{NIAframework}, the authors employ a novel "News Impact Analysis" (NIA) framework, aiming to automate and streamline the process of evaluating news impacts on stock prices, addressing a gap in finance-specific news analysis literature. The paper scrutinizes three contemporary topic modeling methods — LDA, Top2Vec, and BERTopic — across a dataset comprising 38,240 financial news articles. 
+
+The findings indicate that BERTopic outperforms its counterparts by delivering higher coherence scores, improved interpretability, and reasonable computation times, with minimal data preprocessing requirements. The authors argue for the superiority of BERTopic due to its advanced embedding techniques and class-based TF-IDF procedure, which significantly enhance topic quality and relevance.
+
+The work in the aforementioned papers provides us with the groundwork and the necessary tools to implement a solution to our problem, as well as evaluate the solution properly and compare it to existing approaches. 
+
+\section*{Corpus analysis}
+The primary dataset comprises information collected from an online discussion centered around the narrative "The Lady, or the Tiger" and is available on our Github repository \footnote{\url{https://github.com/UL-FRI-NLP-2023-2024/ul-fri-nlp-course-project-azb}}
+. Each entry within the dataset includes the user's pseudonym and their corresponding message. To ensure consistency, messages were categorized with a high level of inter-rater reliability. Coders were assigned the task of labeling entries with specific classifications, with the main classification being \textit{Discussion type}. They were provided with definitions and examples of various discussion types to aid in this categorization process. Additionally, based on the identified discussion type, coders further marked messages with classifications such as \textit{Dialogic spell}, \textit{Uptake}, \textit{Question}, and \textit{Pivot}. For analysis, we used the \textit{R1 Discussion Type} where it was available and replaced it with R2 version where it was not available. We can use the visualization depicted in Figure \ref{fig:distr} to illustrate the popularity of each specific discussion type. Notably, the most prevalent type is \textit{Seminar}, as defined in the provided codebook as \textit{Discussion on the meaning or interpretation of content}. Following closely is \textit{Deliberation}, with half the frequency of the former, defined as \textit{Turns related to decision-making about the content}.
+
+\begin{figure}[ht!]\centering
+	\includegraphics[width=\linewidth]{fig/discussion_type_distribution.pdf}
+	\caption{Distribution of different discussion type. We can predominantly see 'Seminar' type, which is expected from the definition and the type of discourse. Least common type is the "Imaginative" which "places the learner in the discussion as an active participant".  }
+	\label{fig:distr}
+\end{figure}
+
+Additionally, we can analyze the \textit{Pivot} column, which denotes messages that altered the course of discussion, with the formal definition being \textit{The posting establishes or changes the procedural direction of the discussion}. This is evident in Figure \ref{fig:pivot_graph}, where the \textit{Seminar} node occupies the central position with the highest number of connections, aligning with the prevalence of Seminar-type discussions. Outgoing connections are depicted with green arrows, indicating that most pivots originate from \textit{Seminar} and transition into \textit{Deliberation} discussions, and vice versa. This pattern aligns with the definition of \textit{Deliberation} as \textit{Turns related to decision-making about the content}, which often follows or precedes discussions about the story in the \textit{Seminar} type.
+ 
+\begin{figure}[ht!]\centering
+	\includegraphics[width=\linewidth]{fig/pivot_graph.pdf}
+	\caption{The graphical representation illustrates various pivot transitions, with nodes representing different discussion types and lines indicating transitions between them. The width of the lines corresponds to the frequency of specific transitions, while the direction indicates the sequence of occurrences. Notably, thick lines between \textit{Deliberation} and \textit{Seminar} highlight frequent transitions between these two discussion types.}
+	\label{fig:pivot_graph}
+\end{figure}
+
 
 
 %------------------------------------------------
 
 \section*{Methods}
 
-Use the Methods section to describe what you did an how you did it -- in what way did you prepare the data, what algorithms did you use, how did you test various solutions ... Provide all the required details for a reproduction of your work.
-
-Below are \LaTeX examples of some common elements that you will probably need when writing your report (e.g. figures, equations, lists, code examples ...).
-
-
-\subsection*{Equations}
-
-You can write equations inline, e.g. $\cos\pi=-1$, $E = m \cdot c^2$ and $\alpha$, or you can include them as separate objects. The Bayes’s rule is stated mathematically as:
-
-\begin{equation}
-	P(A|B) = \frac{P(B|A)P(A)}{P(B)},
-	\label{eq:bayes}
-\end{equation}
-
-where $A$ and $B$ are some events. You can also reference it -- the equation \ref{eq:bayes} describes the Bayes's rule.
-
-\subsection*{Lists}
-
-We can insert numbered and bullet lists:
-
-% the [noitemsep] option makes the list more compact
-\begin{enumerate}[noitemsep] 
-	\item First item in the list.
-	\item Second item in the list.
-	\item Third item in the list.
-\end{enumerate}
-
-\begin{itemize}[noitemsep] 
-	\item First item in the list.
-	\item Second item in the list.
-	\item Third item in the list.
-\end{itemize}
-
-We can use the description environment to define or describe key terms and phrases.
-
-\begin{description}
-	\item[Word] What is a word?.
-	\item[Concept] What is a concept?
-	\item[Idea] What is an idea?
-\end{description}
-
-
-\subsection*{Random text}
-
-This text is inserted only to make this template look more like a proper report. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit dictum facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam convallis tellus velit, quis ornare ipsum aliquam id. Maecenas tempus mauris sit amet libero elementum eleifend. Nulla nunc orci, consectetur non consequat ac, consequat non nisl. Aenean vitae dui nec ex fringilla malesuada. Proin elit libero, faucibus eget neque quis, condimentum laoreet urna. Etiam at nunc quis felis pulvinar dignissim. Phasellus turpis turpis, vestibulum eget imperdiet in, molestie eget neque. Curabitur quis ante sed nunc varius dictum non quis nisl. Donec nec lobortis velit. Ut cursus, libero efficitur dictum imperdiet, odio mi fermentum dui, id vulputate metus velit sit amet risus. Nulla vel volutpat elit. Mauris ex erat, pulvinar ac accumsan sit amet, ultrices sit amet turpis.
-
-Phasellus in ligula nunc. Vivamus sem lorem, malesuada sed pretium quis, varius convallis lectus. Quisque in risus nec lectus lobortis gravida non a sem. Quisque et vestibulum sem, vel mollis dolor. Nullam ante ex, scelerisque ac efficitur vel, rhoncus quis lectus. Pellentesque scelerisque efficitur purus in faucibus. Maecenas vestibulum vulputate nisl sed vestibulum. Nullam varius turpis in hendrerit posuere.
-
-
-\subsection*{Figures}
-
-You can insert figures that span over the whole page, or over just a single column. The first one, \figurename~\ref{fig:column}, is an example of a figure that spans only across one of the two columns in the report.
-
-\begin{figure}[ht]\centering
-	\includegraphics[width=\linewidth]{single_column.pdf}
-	\caption{\textbf{A random visualization.} This is an example of a figure that spans only across one of the two columns.}
-	\label{fig:column}
-\end{figure}
-
-On the other hand, \figurename~\ref{fig:whole} is an example of a figure that spans across the whole page (across both columns) of the report.
-
-% \begin{figure*} makes the figure take up the entire width of the page
-\begin{figure*}[ht]\centering 
-	\includegraphics[width=\linewidth]{whole_page.pdf}
-	\caption{\textbf{Visualization of a Bayesian hierarchical model.} This is an example of a figure that spans the whole width of the report.}
-	\label{fig:whole}
-\end{figure*}
-
-
-\subsection*{Tables}
-
-Use the table environment to insert tables.
-
-\begin{table}[hbt]
-	\caption{Table of grades.}
-	\centering
-	\begin{tabular}{l l | r}
-		\toprule
-		\multicolumn{2}{c}{Name} \\
-		\cmidrule(r){1-2}
-		First name & Last Name & Grade \\
-		\midrule
-		John & Doe & $7.5$ \\
-		Jane & Doe & $10$ \\
-		Mike & Smith & $8$ \\
-		\bottomrule
-	\end{tabular}
-	\label{tab:label}
-\end{table}
-
-
-\subsection*{Code examples}
-
-You can also insert short code examples. You can specify them manually, or insert a whole file with code. Please avoid inserting long code snippets, advisors will have access to your repositories and can take a look at your code there. If necessary, you can use this technique to insert code (or pseudo code) of short algorithms that are crucial for the understanding of the manuscript.
-
-\lstset{language=Python}
-\lstset{caption={Insert code directly from a file.}}
-\lstset{label={lst:code_file}}
-\lstinputlisting[language=Python]{code/example.py}
-
-\lstset{language=R}
-\lstset{caption={Write the code you want to insert.}}
-\lstset{label={lst:code_direct}}
-\begin{lstlisting}
-import(dplyr)
-import(ggplot)
-
-ggplot(diamonds,
-	   aes(x=carat, y=price, color=cut)) +
-  geom_point() +
-  geom_smooth()
-\end{lstlisting}
-
 %------------------------------------------------
 
 \section*{Results}
-
-Use the results section to present the final results of your work. Present the results in a objective and scientific fashion. Use visualisations to convey your results in a clear and efficient manner. When comparing results between various techniques use appropriate statistical methodology.
-
-\subsection*{More random text}
-
-This text is inserted only to make this template look more like a proper report. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam blandit dictum facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Etiam convallis tellus velit, quis ornare ipsum aliquam id. Maecenas tempus mauris sit amet libero elementum eleifend. Nulla nunc orci, consectetur non consequat ac, consequat non nisl. Aenean vitae dui nec ex fringilla malesuada. Proin elit libero, faucibus eget neque quis, condimentum laoreet urna. Etiam at nunc quis felis pulvinar dignissim. Phasellus turpis turpis, vestibulum eget imperdiet in, molestie eget neque. Curabitur quis ante sed nunc varius dictum non quis nisl. Donec nec lobortis velit. Ut cursus, libero efficitur dictum imperdiet, odio mi fermentum dui, id vulputate metus velit sit amet risus. Nulla vel volutpat elit. Mauris ex erat, pulvinar ac accumsan sit amet, ultrices sit amet turpis.
-
-Phasellus in ligula nunc. Vivamus sem lorem, malesuada sed pretium quis, varius convallis lectus. Quisque in risus nec lectus lobortis gravida non a sem. Quisque et vestibulum sem, vel mollis dolor. Nullam ante ex, scelerisque ac efficitur vel, rhoncus quis lectus. Pellentesque scelerisque efficitur purus in faucibus. Maecenas vestibulum vulputate nisl sed vestibulum. Nullam varius turpis in hendrerit posuere.
-
-Nulla rhoncus tortor eget ipsum commodo lacinia sit amet eu urna. Cras maximus leo mauris, ac congue eros sollicitudin ac. Integer vel erat varius, scelerisque orci eu, tristique purus. Proin id leo quis ante pharetra suscipit et non magna. Morbi in volutpat erat. Vivamus sit amet libero eu lacus pulvinar pharetra sed at felis. Vivamus non nibh a orci viverra rhoncus sit amet ullamcorper sem. Ut nec tempor dui. Aliquam convallis vitae nisi ac volutpat. Nam accumsan, erat eget faucibus commodo, ligula dui cursus nisi, at laoreet odio augue id eros. Curabitur quis tellus eget nunc ornare auctor.
 
 
 %------------------------------------------------
 
 \section*{Discussion}
 
-Use the Discussion section to objectively evaluate your work, do not just put praise on everything you did, be critical and exposes flaws and weaknesses of your solution. You can also explain what you would do differently if you would be able to start again and what upgrades could be done on the project in the future.
 
 
 %------------------------------------------------
 
 \section*{Acknowledgments}
-
-Here you can thank other persons (advisors, colleagues ...) that contributed to the successful completion of your project.
-
 
 %----------------------------------------------------------------------------------------
 %	REFERENCE LIST
