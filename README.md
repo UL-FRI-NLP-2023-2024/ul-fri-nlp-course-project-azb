@@ -13,7 +13,15 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Notebooks
-- corpus_analysis.ipynb is used to analyse the dataset
-- TODO
+## General information
+- Notebook corpus_analysis.ipynb is used to analyse the dataset
+- Dataset is available in `./data` folder
+- Load the dataset with pickle:
+```
+discussion_data = pd.read_pickle(corp_path + '/discussion_data.pkl')
+```
+
+## Running slurm job
+- Use `test_run.sh` as a template for any scripts
+- Run job with `sbatch run-slurm.sh`
 
