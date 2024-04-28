@@ -7,4 +7,4 @@
 #SBATCH --error=logs/test_run-%J.err
 #SBATCH --job-name="Testing run script"
 
-srun python test_script.py
+srun python prompt_tuning_script.py

@@ -1,0 +1,13 @@
+pandas
+langchain
+python-dotenv
+openai
+openpyxl
+jsonlines
+matplotlib
+networkx
+accelerate
+bitsandbytes
+huggingface_hub
+python-dotenv
+setuptools
