@@ -20,6 +20,7 @@ pip install -r requirements.txt
 ```
 discussion_data = pd.read_pickle(corp_path + '/discussion_data.pkl')
 ```
+- The baseline model can be found in the `baseline_bert` folder in the notebook `Baseline BERT.ipynb`. This folder also includes the pickle files containing the train, test and validation datasets.
 
 ## Running slurm job
 - Use `test_run.sh` as a template for any scripts
