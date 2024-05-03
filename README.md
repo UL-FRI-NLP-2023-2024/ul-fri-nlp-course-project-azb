@@ -13,6 +13,22 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+Alternative is to use Conda module on SLURM:
+```
+module load Anaconda3/2023.07-2
+conda create --name pytorch_env python=3.10
+conda init bash
+conda activate pytorch_env
+```
+This can be later used while running `srun` to load env:
+
+```
+source ~/miniconda3/etc/profile.d/conda.sh 
+conda activate pytorch_env
+```
+
+
+
 ## General information
 - Notebook corpus_analysis.ipynb is used to analyse the dataset
 - Dataset is available in `./data` folder
