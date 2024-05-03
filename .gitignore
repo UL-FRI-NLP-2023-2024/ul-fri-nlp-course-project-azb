@@ -130,3 +130,11 @@ dmypy.json
 
 # env
 .env
+
+# temporary lora
+lora/*
+
+# prompt_tuning
+prompt_tuning/log/*
+prompt_tuning/outputs/*
+prompt_tuning/results/*

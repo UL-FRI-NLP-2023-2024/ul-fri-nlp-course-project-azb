@@ -11,3 +11,8 @@ bitsandbytes
 huggingface_hub
 python-dotenv
 setuptools
+ipywidgets
+datasets
+evaluate
+scikit-learn
+sentence-transformers

@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH -p gpu
+#SBATCH --job-name=jupyter-notebook
+#SBATCH --output=log/jupyter-notebook-%J.log
+#SBATCH --time=05:00:00
+#SBATCH --gres=gpu:1 #--gpus=1
+
+
+# get tunneling info
+port=8888
+node=$(hostname -s)
+user=$(whoami)
+
+# Print connection info (optional)
+echo "SSH tunnel command: ssh -N -f -L localhost:$port:$node:$port $user@hpc-login1"
+
+# run jupyter notebook
+jupyter-notebook --no-browser --port=${port} --ip=${node}
