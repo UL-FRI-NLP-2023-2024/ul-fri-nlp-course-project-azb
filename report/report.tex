@@ -30,6 +30,8 @@
 %	ARTICLE INFORMATION
 %----------------------------------------------------------------------------------------
 
+\usepackage{adjustbox}
+
 % Header
 \JournalInfo{FRI Natural language processing course 2024}
 
@@ -87,10 +89,14 @@ The core of our research involves the intricate process of building and fine-tun
 
 A novel aspect of our research is the use of a separately fine-tuned LLM to generate explanations for the model's categorization decisions. This not only adds a layer of transparency to the model's workings but also provides valuable insights into its decision-making processes.
 
+
+\iffalse
 Our research is inspired by the findings of the paper \textit{TopicGPT: A Prompt-based Topic Modeling Framework}, which highlighted the limitations of the Mistral model in comparison to other approaches. We aim to build upon the foundational aspects of the Mistral model, addressing its shortcomings and enhancing its capabilities to improve performance.
-	
+\fi
 
 \section*{Related works}
+
+\iffalse
 In the domain of topic modeling and text categorization, a variety of methodologies have emerged over the years, each aiming to improve our ability to discern and categorize underlying themes within large datasets of text. Latent Dirichlet Allocation (LDA) \cite{Blei2003LatentDA}, introduced in the early 2000s stands out as one of the foundational techniques that is still used in modern comparisons and benchmarks. LDA has paved the way for understanding topic distributions within documents through a generative statistical approach. However, the evolution of NLP technologies has ushered in a new era of topic modeling methods, characterized by enhanced sophistication and effectiveness. 
 
 In the paper \textit{BERTopic: Neural Topic Modeling with a Class-based TF-IDF Procedure} by Maarten Grootendorst, BERTopic is introduced as an advanced topic modeling technique. This method distinguishes itself by utilizing pre-trained transformer-based language models to generate and cluster document embeddings, in this way creating coherent topic representations through a novel class-based TF-IDF approach. Unlike conventional models such as LDA, BERTopic emphasizes the semantic relationships between words, ensuring more meaningful clustering and topic representation. The study highlights BERTopic's strengths in generating semantically coherent topics, its adaptability with different language models, and its capacity for dynamic topic modeling, showcasing its superior performance in various benchmarks. 
@@ -116,36 +122,90 @@ Similarly, in the study \textit{Leveraging State-of-the-Art Topic Modeling for N
 The findings indicate that BERTopic outperforms its counterparts by delivering higher coherence scores, improved interpretability, and reasonable computation times, with minimal data preprocessing requirements. The authors argue for the superiority of BERTopic due to its advanced embedding techniques and class-based TF-IDF procedure, which significantly enhance topic quality and relevance.
 
 The work in the aforementioned papers provides us with the groundwork and the necessary tools to implement a solution to our problem, as well as evaluate the solution properly and compare it to existing approaches. 
+\fi
+
+
+
+% BERT
+The article by Devlin et al. \cite{devlin2019bert} introduces BERT, a novel language representation model acronym for Bidirectional Encoder Representations from Transformers. Unlike previous models, BERT is uniquely designed to pre-train deep bidirectional representations from unlabeled text, capturing both left and right context in all layers. This allows for fine-tuning with minimal modifications to achieve state-of-the-art performance on various tasks, including question answering and language inference. BERT exhibits simplicity in concept and remarkable empirical effectiveness, evidenced by significant improvements on eleven natural language processing tasks. 
+
+% How to Fine-tune BERT for Text Classification
+In the study "How to Fine-Tune BERT for Text Classification" by Sun et al. \cite{sun2020finetune}, the researchers examine various methods for optimizing the BERT model to enhance its effectiveness in text classification tasks. They perform detailed experiments across several well-known datasets, establishing new performance benchmarks. Their proposed methodology includes a pre-fine-tuning phase using multitask learning and targeted pre-training with in-domain data. This preparatory step is followed by specific fine-tuning adjustments tailored to the text classification task at hand. The paper offers a comprehensive exploration of factors such as the selection of neural network layers, addressing catastrophic forgetting, and managing long text inputs, all of which significantly influence the performance of the model. This approach highlights the adaptability of BERT in managing a range of text classification problems and provides a robust framework for leveraging deep learning models in natural language processing tasks.
+
+% Prompt engineering
+Ye et al. \cite{ye2024prompt} focused on prompt engineering, a critical task for optimizing the performance of large language models on customized tasks. It highlights the complexity involved in analyzing model errors, identifying deficiencies in prompts, and articulating tasks clearly. While existing research suggests that large language models can be meta-prompted for automatic prompt engineering, the authors argue that this approach is limited by a lack of guidance for nuanced reasoning. To address this limitation, the authors propose PE2, a method that enhances the meta-prompt with detailed descriptions, context specification, and a step-by-step reasoning template. PE2 demonstrates remarkable versatility across various language tasks, surpassing competitive baselines on tasks such as MultiArith and GSM8K. Additionally, the method excels in making targeted prompt edits, rectifying erroneous prompts, and generating multi-step plans for complex tasks.
 
 \section*{Corpus analysis}
-The primary dataset comprises information collected from an online discussion centered around the narrative "The Lady, or the Tiger" and is available on our Github repository \footnote{\url{https://github.com/UL-FRI-NLP-2023-2024/ul-fri-nlp-course-project-azb}}
-. Each entry within the dataset includes the user's pseudonym and their corresponding message. To ensure consistency, messages were categorized with a high level of inter-rater reliability. Coders were assigned the task of labeling entries with specific classifications, with the main classification being \textit{Discussion type}. They were provided with definitions and examples of various discussion types to aid in this categorization process. Additionally, based on the identified discussion type, coders further marked messages with classifications such as \textit{Dialogic spell}, \textit{Uptake}, \textit{Question}, and \textit{Pivot}. For analysis, we used the \textit{R1 Discussion Type} where it was available and replaced it with R2 version where it was not available. We can use the visualization depicted in Figure \ref{fig:distr} to illustrate the popularity of each specific discussion type. Notably, the most prevalent type is \textit{Seminar}, as defined in the provided codebook as \textit{Discussion on the meaning or interpretation of content}. Following closely is \textit{Deliberation}, with half the frequency of the former, defined as \textit{Turns related to decision-making about the content}.
+The main dataset, sourced from an online discussion on "The Lady, or the Tiger," is accessible on our Github repository \footnote{\url{https://github.com/UL-FRI-NLP-2023-2024/ul-fri-nlp-course-project-azb}}. Each entry includes the user's pseudonym and message, categorized with high inter-rater reliability. Entries were labeled primarily by \textit{Discussion type}, aided by provided definitions and examples. Coders also marked messages with classifications like \textit{Dialogic spell}, \textit{Uptake}, \textit{Question}, and \textit{Pivot}. As a primary classification class, we used column \textit{R2 Discussion Type}. The distribution graph (Figure \ref{fig:distr}) showcases the popularity of each discussion type. Notably, \textit{Seminar} dominates, defined as discussions on content meaning or interpretation, followed by \textit{Deliberation}, focusing on content-related decision-making. 
 
 \begin{figure}[ht!]\centering
-	\includegraphics[width=\linewidth]{fig/discussion_type_distribution.pdf}
-	\caption{Distribution of different discussion type. We can predominantly see 'Seminar' type, which is expected from the definition and the type of discourse. Least common type is the "Imaginative" which "places the learner in the discussion as an active participant".  }
+	\includegraphics[scale=0.5]{fig/discussion_type_distribution.pdf}
+	\caption{Distribution of different discussion types. We can see that 'Seminar' is the predominant type, which is expected from the definition and the type of discourse. The least common type is "Imaginative" which "places the learner in the discussion as an active participant".  }
 	\label{fig:distr}
 \end{figure}
 
+
+\iffalse
+// UNCOMMENT IF NEEDED //
 Additionally, we can analyze the \textit{Pivot} column, which denotes messages that altered the course of discussion, with the formal definition being \textit{The posting establishes or changes the procedural direction of the discussion}. This is evident in Figure \ref{fig:pivot_graph}, where the \textit{Seminar} node occupies the central position with the highest number of connections, aligning with the prevalence of Seminar-type discussions. Outgoing connections are depicted with green arrows, indicating that most pivots originate from \textit{Seminar} and transition into \textit{Deliberation} discussions, and vice versa. This pattern aligns with the definition of \textit{Deliberation} as \textit{Turns related to decision-making about the content}, which often follows or precedes discussions about the story in the \textit{Seminar} type.
  
 \begin{figure}[ht!]\centering
-	\includegraphics[width=\linewidth]{fig/pivot_graph.pdf}
+	\includegraphics[scale=0.3]{fig/pivot_graph.pdf}
 	\caption{The graphical representation illustrates various pivot transitions, with nodes representing different discussion types and lines indicating transitions between them. The width of the lines corresponds to the frequency of specific transitions, while the direction indicates the sequence of occurrences. Notably, thick lines between \textit{Deliberation} and \textit{Seminar} highlight frequent transitions between these two discussion types.}
 	\label{fig:pivot_graph}
 \end{figure}
-
+\fi
 
 
 %------------------------------------------------
 
 \section*{Methods}
 
+For the initial phase of our project, we addressed the classification challenge. We chose to utilize the \textit{R2DiscussionType} column as it consistently defines the decision task and serves as the primary class for classification by test subjects. As a benchmark, we employed a pre-trained BERT model (\textit{bert-base-cased}) to classify Discussion types within our dataset. Implementation was carried out using the PyTorch library in Python, which gave us access to Trainer API that we used to fine-tune the pre-trained BERT model. Baseline BERT model was trained with 3 epochs, utilizing a batch size of 8, and employing the standard learning rate of $2 \times 10^{-5}$.
+
+We divided our dataset into three parts: train, test and validation. In the training dataset we have 427 samples or $70\%$ of the dataset, and the test and validation datasets both have 92 samples or $15\%$ of the dataset each. Due to the class imbalance in our dataset, certain less represented classes have only a few samples in the divided datasets. The test dataset is used as an evaluation dataset during the training phase, and we use the validation dataset as a final score of the model.
+
+Using the Trainer API, we could also fine-tune the BERT model by increasing number of epochs. To setup optimizers, we used Adam optimizer by PyTorch and tested a scheduler with implemented \textit{ReduceLROnPlateau}, to reduce learning rate when a metric stops improving.
+
+We also tried using DistilBERT\cite{sanh2020distilbert}, which is a lightweight BERT model fine-tuned for text classification.
+
+Our current plan of work contains several approaches: 
+\begin{itemize}[noitemsep]
+    \item Implement a different LLM, which will classify discussion types and try to explain how the model made the decision.
+    \item Try to use prompt engineering.
+    \item Combine two or more models (ensemble learning).
+    \item Further exploration of the dataset, possibly filtering out "bad" samples. 
+    \item Fine-tune the large BERT model. 
+\end{itemize}
+
+We plan to evaluate all our models on a separate discourse dataset, created in a similar research with test subjects being high school students.
+
+%% Prompting
+In our exploration of advanced NLP techniques for text categorization, we implemented various methodologies centered around the LLAMA model \cite{decapoda-research-llama-7B-hf} and prompt engineering, aiming to enhance the model's ability to perform few-shot prompting. In order to choose relevant prompts, we experimented with BERT embeddings followed by K-means and hierarchical clustering techniques, which initially did not meet the expected clarity in categorization. Most of the relevant examples chosen by these algorithms were short statements without enough context. Subsequently, we shifted our strategy to use TF-IDF vectorization instead of BERT embeddings. This approach was taken to retain more textual context. However, it didn't prove to be essentially effective in clustering and categorization. The primary limitation we encountered comes from the dataset's composition—specifically, its imbalance and the prevalence of context-poor texts for some categories significantly impacted the LLAMA model's ability to distinguish between categories accurately. Additionally, the names of the categories were also quite abstract for the model to extract features for categorization. This experiment highlighted the critical relationship between dataset quality and the performance of machine learning models in text-based categorization tasks. 
+
 %------------------------------------------------
 
 \section*{Results}
+For evaluating our BERT models, we will use accuracy as an evaluation metric to determine how well it is performing. 
 
+\begin{table}[h!]
+\begin{adjustbox}{width=\columnwidth,center}
+\begin{tabular}{lllll}
+Model               & Epochs & Batch size & Test accuracy & Validation accuracy \\
+bert-base-cased     & 3      & 4          & 0.728         & 0.652               \\
+bert-base-cased     & 3      & 8          & 0.75          & 0.685               \\
+bert-base-cased     & 10     & 8          & 0.77          & 0.696               \\
+distil-base-uncased & 10     & 8          & 0.728         & 0.641               \\
+distil-base-uncased & 50     & 16         & 0.77          & 0.641             \\
+bert-large-uncased & 10     & 8         & 0.72     
+& 0.72 \\
+bert-large-uncased & 20     & 16         & 0.75        
+& 0.72
+\end{tabular}
+\end{adjustbox}
+\end{table}
 
+Currently our best performing model is the large BERT model (\textit{bert-large-uncased}), which has the best accuracy score on the validation dataset. The accuracy is greatly affected by the batch size and the number of epochs in which the model was trained.
 %------------------------------------------------
 
 \section*{Discussion}
