@@ -16,3 +16,4 @@ datasets
 evaluate
 scikit-learn
 sentence-transformers
+seaborn

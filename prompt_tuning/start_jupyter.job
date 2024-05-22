@@ -3,7 +3,7 @@
 #SBATCH --job-name=jupyter-notebook
 #SBATCH --output=log/jupyter-notebook-%J.log
 #SBATCH --time=05:00:00
-#SBATCH --gres=gpu:1 #--gpus=1
+#SBATCH --gres=gpu:2 #--gpus=1
 
 
 # get tunneling info
