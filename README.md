@@ -12,6 +12,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 ```
+## Note: 
+### Recommended package installation is through terminal, not Jupyter Notebook. Use requirements.txt in root folder to install packages required for all modules. If you only want to run specific module, eg. baseline bert, use requirements.txt in folder @/baseline_bert to install required packages. 
+
+
 
 Alternative is to use Conda module on SLURM:
 ```

@@ -6,3 +6,9 @@ openpyxl
 jsonlines
 matplotlib
 networkx
+datasets
+transformers
+evaluate
+numpy
+torch
+ipykernel
