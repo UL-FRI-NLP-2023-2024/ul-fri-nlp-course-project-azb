@@ -4,7 +4,7 @@ Structure:
 - `data` folder contains dataset used by code
 - `images` folder contains images used in report
 - `report` folder contains report
-- `traditional_AI_approaches` folder contiains an implementation of Traditional AI appraoches and its evaluation
+- `traditional_AI_approaches` folder contiains an implementation of Traditional AI approaches and its evaluation
 - `baseline_bert` folder contiains an implementation of BERT model and its evaluation
 - `prompt_tuning` folder contiains an implementation of text categorization by prompting and its evaluation
 - `corpus_anaylsis.ipynb` file is a Jupyter notebook file for corpus analysis
@@ -60,7 +60,7 @@ discussion_data = pd.read_pickle(corp_path + '/discussion_data.pkl')
 - The model DistilBERT can be found in the `baseline_bert` folder in the notebook `DistilBERT.ipynb`. This folder also includes the pickle files containing the train, test and validation datasets.
 
 ### Traditional AI approaches
-- The model DistilBERT can be found in the `baseline_bert` folder in the notebook `DistilBERT.ipynb`. This folder also includes the pickle files containing the train, test and validation datasets.
+- In the folder `traditional_AI_approaches` in the notebook `Traditional AI approaches to text classification.ipynb` you can run the traditional AI models. In this folder you can also run the error analysis notebook to get a more thorough look at the model's results.
 
 ### Prompting
 - Text categorization with prompt engineering can be found in the `prompt_tuning` folder the notebook `prompt_tuning.ipynb`. This folder also includes the pickle files containing the train, test and validation datasets.
