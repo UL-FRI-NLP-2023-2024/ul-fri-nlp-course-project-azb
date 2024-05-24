@@ -136,5 +136,7 @@ lora/*
 
 # prompt_tuning
 prompt_tuning/log/*
-prompt_tuning/outputs/*
+prompt_tuning/outputs/README.md
+prompt_tuning/outputs/adapter_config.json
+prompt_tuning/outputs/adapter_model.safetensors
 prompt_tuning/results/*
