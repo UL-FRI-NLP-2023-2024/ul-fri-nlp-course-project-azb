@@ -12,3 +12,5 @@ evaluate
 numpy
 torch
 ipykernel
+scikit-learn
+xgboost
